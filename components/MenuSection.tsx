@@ -3,19 +3,11 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import OrderButton from "./OrderButton";
 
 const menuImages = [
   { src: "/6cc01090-3d46-4766-9a64-c79a03caccb1.png", label: "Udon, Ramen & Rice Bowls" },
   { src: "/c6f4942d-f2b3-4d16-a964-887e2d9bf06d.png", label: "Tempura, Sides & Appetizers" },
-];
-
-const galleryPhotos = [
-  "https://website-cdn.menusifu.com/wp-content/uploads/ippinnllc.com/2023/04/微信图片_20230413172828.jpg",
-  "https://website-cdn.menusifu.com/wp-content/uploads/ippinnllc.com/2023/04/微信图片_20230413172826.png",
-  "https://website-cdn.menusifu.com/wp-content/uploads/ippinnllc.com/2023/04/微信图片_20230413172824.png",
-  "https://website-cdn.menusifu.com/wp-content/uploads/ippinnllc.com/2023/04/微信图片_20230413172822.png",
-  "https://website-cdn.menusifu.com/wp-content/uploads/ippinnllc.com/2023/04/微信图片_20230413172819.png",
-  "https://website-cdn.menusifu.com/wp-content/uploads/ippinnllc.com/2023/04/微信图片_20230413172811.png",
 ];
 
 const vp = { once: true, amount: 0 as const };
@@ -83,47 +75,12 @@ export default function MenuSection() {
             transition={{ duration: 0.7, delay: 0.2 }} viewport={vp}
             className="text-center"
           >
-            <a
-              href="https://order.mealkeyway.com/merchant/41456f38576537682f514e7074536b36506e503552673d3d/main"
-              target="_blank" rel="noopener noreferrer"
-              className="inline-block font-body text-xs tracking-[0.25em] uppercase px-8 py-4 bg-accent text-cream hover:bg-accent-light transition-colors duration-300"
-            >
-              Order Online
-            </a>
+            <OrderButton className="font-body text-xs tracking-[0.25em] uppercase px-8 py-4 bg-accent text-cream hover:bg-accent-light transition-colors duration-300" />
           </motion.div>
         </div>
       </section>
 
-      {/* Kitchen gallery */}
-      <section className="py-20 px-6 bg-cream overflow-hidden">
-        <div className="max-w-6xl mx-auto">
-          <motion.p
-            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.7 }} viewport={vp}
-            className="font-body text-xs tracking-[0.4em] uppercase text-warm-gray mb-10 text-center"
-          >
-            From the Kitchen
-          </motion.p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-            {galleryPhotos.map((src, i) => (
-              <motion.div
-                key={src}
-                initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: i * 0.06 }} viewport={vp}
-                className="relative aspect-square overflow-hidden cursor-zoom-in group"
-                onClick={() => setLightbox(src)}
-              >
-                <Image
-                  src={src} alt={`Ippinn dish ${i + 1}`} fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  sizes="(max-width: 768px) 50vw, 33vw" unoptimized
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      {/* Lightbox */}
       {lightbox && (
         <motion.div
           initial={{ opacity: 0 }} animate={{ opacity: 1 }}
@@ -139,7 +96,7 @@ export default function MenuSection() {
             <Image
               src={lightbox} alt="Enlarged view"
               width={1200} height={900}
-              className="w-full h-auto max-h-[85vh] object-contain" unoptimized
+              className="w-full h-auto max-h-[85vh] object-contain"
             />
             <button
               onClick={() => setLightbox(null)}

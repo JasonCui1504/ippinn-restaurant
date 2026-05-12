@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import OrderButton from "./OrderButton";
 
 export default function Footer() {
   return (
@@ -69,17 +70,9 @@ export default function Footer() {
           <p className="font-body text-xs" style={{ color: "#3D3530" }}>
             © {new Date().getFullYear()} Ippinn LLC. All rights reserved.
           </p>
-          <a
-            href="https://order.mealkeyway.com/merchant/41456f38576537682f514e7074536b36506e503552673d3d/main"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-body text-xs tracking-[0.25em] uppercase transition-colors duration-200"
-            style={{ color: "#7D7268" }}
-            onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#EDE7DB")}
-            onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "#7D7268")}
-          >
+          <OrderButton className="font-body text-xs tracking-[0.25em] uppercase transition-colors duration-200 hover:text-[#EDE7DB]" style={{ color: "#7D7268" }}>
             Order Online →
-          </a>
+          </OrderButton>
         </div>
       </div>
     </footer>

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import OrderButton from "./OrderButton";
 
 const links = [
   { label: "About", href: "#about" },
@@ -60,14 +61,7 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <a
-            href="https://order.mealkeyway.com/merchant/41456f38576537682f514e7074536b36506e503552673d3d/main"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-body text-sm tracking-widest uppercase px-5 py-2 border border-accent text-accent hover:bg-accent hover:text-cream transition-all duration-300"
-          >
-            Order Online
-          </a>
+          <OrderButton className="font-body text-sm tracking-widest uppercase px-5 py-2 border border-accent text-accent hover:bg-accent hover:text-cream transition-all duration-300" />
         </nav>
 
         <button
@@ -115,14 +109,7 @@ export default function Navbar() {
                   {l.label}
                 </a>
               ))}
-              <a
-                href="https://order.mealkeyway.com/merchant/41456f38576537682f514e7074536b36506e503552673d3d/main"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-body text-sm tracking-widest uppercase px-5 py-2 border border-accent text-accent text-center hover:bg-accent hover:text-cream transition-all duration-300"
-              >
-                Order Online
-              </a>
+              <OrderButton className="font-body text-sm tracking-widest uppercase px-5 py-2 border border-accent text-accent text-center hover:bg-accent hover:text-cream transition-all duration-300" />
             </div>
           </motion.nav>
         )}
