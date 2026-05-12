@@ -74,11 +74,11 @@ export default async function FeaturedSection() {
                   {article.title}
                 </h3>
                 {article.description && (
-                  <p className="font-body text-sm leading-relaxed line-clamp-3 flex-1" style={{ color: "#7D7268" }}>
+                  <p className="font-body text-sm leading-relaxed line-clamp-3 flex-1" style={{ color: "#C4B8AB" }}>
                     {article.description}
                   </p>
                 )}
-                <div className="mt-5 flex items-center gap-2 font-body text-xs tracking-[0.25em] uppercase text-warm-gray group-hover:text-accent transition-colors duration-200">
+                <div className="mt-5 flex items-center gap-2 font-body text-xs tracking-[0.25em] uppercase transition-colors duration-200" style={{ color: "#A09080" }}>
                   <span>Read Article</span>
                   <svg width="10" height="10" viewBox="0 0 12 12" fill="none" className="transition-transform duration-300 group-hover:translate-x-1">
                     <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />

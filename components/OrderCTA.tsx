@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 const platforms = [
   {
@@ -24,30 +23,18 @@ const platforms = [
   },
 ];
 
-export default function OrderCTA() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-15%" });
+const vp = { once: true, amount: 0 as const };
 
+export default function OrderCTA() {
   return (
-    <section
-      ref={ref}
-      className="py-32 px-6 text-center overflow-hidden relative"
-      style={{ backgroundColor: "#1C1814" }}
-    >
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.04]"
-        style={{ border: "1px solid #F8F3EA" }}
-      />
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full opacity-[0.04]"
-        style={{ border: "1px solid #F8F3EA" }}
-      />
+    <section className="py-32 px-6 text-center overflow-hidden relative" style={{ backgroundColor: "#1C1814" }}>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.04]" style={{ border: "1px solid #F8F3EA" }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full opacity-[0.04]" style={{ border: "1px solid #F8F3EA" }} />
 
       <div className="relative z-10 max-w-2xl mx-auto">
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }} viewport={vp}
           className="font-body text-xs tracking-[0.4em] uppercase mb-6"
           style={{ color: "#9B2335" }}
         >
@@ -55,9 +42,8 @@ export default function OrderCTA() {
         </motion.p>
 
         <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.1 }}
+          initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }} viewport={vp}
           className="font-display text-[clamp(2.5rem,6vw,5rem)] font-light leading-tight mb-8"
           style={{ color: "#F8F3EA" }}
         >
@@ -66,19 +52,17 @@ export default function OrderCTA() {
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.7, delay: 0.25 }}
+          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.2 }} viewport={vp}
           className="font-body text-sm leading-relaxed mb-12"
-          style={{ color: "#7D7268" }}
+          style={{ color: "#C4B8AB" }}  // ← was #7D7268, now readable on dark
         >
           Order direct for pickup, or get it delivered via your favourite platform.
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.35 }}
+          initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }} viewport={vp}
           className="flex flex-col sm:flex-row justify-center gap-4"
         >
           {platforms.map((p) => (
@@ -87,27 +71,18 @@ export default function OrderCTA() {
               href={p.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex flex-col items-center gap-0.5 px-8 py-4 border transition-all duration-300"
-              style={{
-                borderColor: p.primary ? "#F8F3EA" : "#3D3530",
-                backgroundColor: "transparent",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.backgroundColor = p.primary ? "#F8F3EA" : "#3D3530";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
-              }}
+              className="group flex flex-col items-center gap-1 px-8 py-4 border transition-all duration-300 hover:bg-[#2A2520]"
+              style={{ borderColor: p.primary ? "#F8F3EA" : "#5A4F47" }}
             >
               <span
-                className="font-body text-xs tracking-[0.25em] uppercase transition-colors duration-300"
-                style={{ color: p.primary ? "#F8F3EA" : "#7D7268" }}
+                className="font-body text-xs tracking-[0.25em] uppercase"
+                style={{ color: "#F8F3EA" }}  // ← all labels white now
               >
                 {p.label}
               </span>
               <span
                 className="font-body text-[10px] tracking-wider"
-                style={{ color: "#3D3530" }}
+                style={{ color: "#A09080" }}  // ← was #3D3530, now readable
               >
                 {p.sub}
               </span>
