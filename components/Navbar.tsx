@@ -39,12 +39,7 @@ export default function Navbar() {
             alt="Ippinn logo"
             width={80}
             height={40}
-            className="opacity-90"
-            onError={(e) => {
-              (e.currentTarget as HTMLImageElement).src =
-                "https://website-cdn.menusifu.com/public/images/Transparent+Logo.png";
-              (e.currentTarget as HTMLImageElement).className = "invert opacity-80";
-            }}
+            style={{ mixBlendMode: "multiply" }}
           />
           <span
             className="font-display text-sm tracking-[0.25em] uppercase hidden sm:block"

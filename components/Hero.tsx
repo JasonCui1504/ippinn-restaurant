@@ -40,12 +40,7 @@ export default function Hero() {
               alt="Ippinn logo"
               width={140}
               height={70}
-              className="opacity-90"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).src =
-                  "https://website-cdn.menusifu.com/public/images/Transparent+Logo.png";
-                (e.currentTarget as HTMLImageElement).className = "invert opacity-80";
-              }}
+              style={{ mixBlendMode: "multiply" }}
             />
           </motion.div>
 

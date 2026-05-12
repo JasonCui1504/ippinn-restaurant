@@ -14,11 +14,8 @@ export default function Footer() {
               alt="Ippinn logo"
               width={100}
               height={50}
-              className="mb-3 opacity-80"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).src =
-                  "https://website-cdn.menusifu.com/public/images/Transparent+Logo.png";
-              }}
+              className="mb-3"
+              style={{ filter: "invert(1)", mixBlendMode: "screen", opacity: 0.85 }}
             />
             <p className="font-body text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#7D7268" }}>
               Ippinn Udon &amp; Tempura
