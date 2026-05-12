@@ -43,28 +43,28 @@ const STATIC_RATINGS: PlatformRating[] = [
 
 const STATIC_QUOTES: ReviewQuote[] = [
   {
-    text: "Hands down the best udon I've had outside of Japan. The broth is rich, the noodles are chewy and perfectly made. This place is a hidden gem in Santa Rosa.",
-    author: "Sarah M.",
+    text: "What a find! Stumbled into this place while hungry visiting the area. It was great! You order with trays down an assembly line and pay at the end. Miso soup and sides are given to you first. Main dishes come out after. Great service! We had a baby as well and even he loved the udon and veggie tempura.",
+    author: "John V.",
     rating: 5,
     platform: "Yelp",
   },
   {
-    text: "The tempura here is absolutely incredible — so light and crispy. We order from here at least once a week and the quality is always consistent.",
-    author: "James T.",
+    text: "I absolutely love this place, the food is prepared for you right before your eyes and is definitely fresh. I have gotten to know a few of the employees, they're always helpful and friendly.",
+    author: "Tracy M.",
+    rating: 5,
+    platform: "Yelp",
+  },
+  {
+    text: "Awesome food. Delicious as always. They have a mix of chinese and japanese noodle dishes, and its incredibly tasty. They make everything fresh. Their dumplings are made by a person in the back, and upon walking in, you can see the noodle machine going. Owner is such a kind person.",
+    author: "Jason C.",
     rating: 5,
     platform: "Google",
   },
   {
-    text: "Fresh, authentic flavors that remind me of my time in Japan. The portions are generous and the prices are fair. Highly recommend the nabeyaki udon!",
-    author: "Keiko R.",
+    text: "The four different udons were delicious! The owner is very friendly and came out to ask about the quality and taste. The noodles were made fresh in the noodle shop! Many varieties.",
+    author: "Ray C.",
     rating: 5,
-    platform: "Yelp",
-  },
-  {
-    text: "Fast delivery and the food arrives hot every time. The udon noodles don't get soggy even after the drive — that says everything about their quality.",
-    author: "Marcus L.",
-    rating: 5,
-    platform: "DoorDash",
+    platform: "Google",
   },
 ];
 
