@@ -17,20 +17,20 @@ export interface ReviewQuote {
 const STATIC_RATINGS: PlatformRating[] = [
   {
     platform: "Google",
-    rating: 4.5,
-    reviewCount: "300+",
-    url: "https://www.google.com/maps/place/Ippinn+Udon+%26+Tempura",
+    rating: 4.6,
+    reviewCount: "562",
+    url: "https://www.google.com/search?q=Ippinn+Udon+%26+Tempura#lrd=0x8084478aecd656cf:0xb94438bf56c9a307,1,,,,",
   },
   {
     platform: "Yelp",
-    rating: 4.2,
-    reviewCount: "722",
+    rating: 4.4,
+    reviewCount: "723",
     url: "https://www.yelp.com/biz/ippinn-udon-and-tempura-santa-rosa",
   },
   {
     platform: "Uber Eats",
-    rating: 4.2,
-    reviewCount: "500+",
+    rating: 4.8,
+    reviewCount: "700+",
     url: "https://www.ubereats.com/store/ippinn-udon/ijgfUR1LVi22D7WIHnfR3A",
   },
   {
