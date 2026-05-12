@@ -60,6 +60,56 @@ export default function Hero() {
         <div className="absolute top-20 right-0 w-64 h-64 rounded-full opacity-[0.06]" style={{ border: "1px solid #1C1814" }} />
         <div className="absolute bottom-20 left-0 w-40 h-40 rounded-full opacity-[0.05]" style={{ border: "1px solid #1C1814" }} />
 
+        {/* Cartoon udon bowl with rising steam — desktop only */}
+        <motion.div
+          className="absolute pointer-events-none select-none hidden lg:block"
+          style={{ bottom: "7%", right: "5%" }}
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.3, duration: 1 }}
+          aria-hidden="true"
+        >
+          {/* Steam wisps above the bowl */}
+          <div style={{ position: "relative", height: "62px", width: "110px" }}>
+            {[
+              { x: 14, delay: 0,   d: "M 7,58 C 1,46 13,34 7,22 C 1,10 10,3 8,0" },
+              { x: 45, delay: 0.9, d: "M 7,58 C 13,46 1,34 7,22 C 13,10 3,3 7,0" },
+              { x: 76, delay: 1.8, d: "M 7,58 C 1,46 13,34 7,22 C 1,10 10,3 8,0" },
+            ].map((w, i) => (
+              <motion.svg
+                key={i}
+                width="14" height="62"
+                viewBox="0 0 14 62"
+                style={{ position: "absolute", bottom: 0, left: w.x }}
+                animate={{ y: [0, -24], opacity: [0, 0.5, 0] }}
+                transition={{ duration: 2.7, repeat: Infinity, delay: w.delay, ease: "easeOut" }}
+              >
+                <path d={w.d} stroke="#8B6430" strokeWidth="2.2" strokeLinecap="round" fill="none" />
+              </motion.svg>
+            ))}
+          </div>
+
+          {/* Bowl */}
+          <svg width="110" height="92" viewBox="0 0 120 100">
+            <ellipse cx="60" cy="98" rx="46" ry="5" fill="rgba(0,0,0,0.08)" />
+            <path d="M 10,50 C 5,78 22,96 60,98 C 98,96 115,78 110,50 Z" fill="#EDE0C4" stroke="#7A5C2E" strokeWidth="2.5" strokeLinejoin="round" />
+            <path d="M 17,50 C 13,74 28,90 60,92 C 92,90 107,74 103,50 Z" fill="#B87D48" opacity="0.18" />
+            <ellipse cx="60" cy="50" rx="50" ry="13" fill="#F2E6CE" stroke="#7A5C2E" strokeWidth="2.5" />
+            <path d="M 20,46 C 33,36 46,56 59,46 C 72,36 85,56 98,46" fill="none" stroke="#D4A853" strokeWidth="3" strokeLinecap="round" />
+            <path d="M 24,53 C 37,43 50,63 63,53 C 76,43 89,63 98,53" fill="none" stroke="#C09040" strokeWidth="2.5" strokeLinecap="round" />
+            {/* Narutomaki */}
+            <circle cx="42" cy="42" r="7" fill="#F5EDE0" stroke="#7A5C2E" strokeWidth="1.5" />
+            <path d="M 37,42 C 39,37 45,37 47,42" fill="#E8ABA5" />
+            {/* Green onion */}
+            <circle cx="74" cy="42" r="3.5" fill="#7CB87A" />
+            <circle cx="80" cy="46" r="2.5" fill="#6AAA68" />
+            <circle cx="70" cy="47" r="2" fill="#7CB87A" />
+            {/* Chopsticks */}
+            <line x1="50" y1="28" x2="42" y2="72" stroke="#9B6B2E" strokeWidth="2" strokeLinecap="round" />
+            <line x1="60" y1="26" x2="54" y2="72" stroke="#9B6B2E" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+        </motion.div>
+
         <motion.div variants={stagger} initial="initial" animate="animate" className="relative max-w-lg">
           <motion.p variants={fadeUp} className="font-body text-xs tracking-[0.4em] uppercase text-warm-gray mb-6">
             Santa Rosa, California

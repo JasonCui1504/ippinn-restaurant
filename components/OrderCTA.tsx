@@ -11,6 +11,7 @@ export default function OrderCTA() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.04]" style={{ border: "1px solid #F8F3EA" }} />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full opacity-[0.04]" style={{ border: "1px solid #F8F3EA" }} />
 
+
       <div className="relative z-10 max-w-2xl mx-auto">
         <motion.p
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
@@ -43,8 +44,20 @@ export default function OrderCTA() {
         <motion.div
           initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }} viewport={vp}
+          className="flex justify-center"
         >
-          <OrderButton className="font-body text-xs tracking-[0.3em] uppercase px-10 py-4 border border-[#F8F3EA] text-[#F8F3EA] hover:bg-[#F8F3EA] hover:text-[#1C1814] transition-all duration-300" />
+          <div className="relative inline-block">
+            {[0, 0.85, 1.7].map((delay, i) => (
+              <motion.span
+                key={i}
+                className="absolute inset-0 pointer-events-none"
+                style={{ border: "1px solid #C9A96E" }}
+                animate={{ scale: [1, 1.75], opacity: [0.5, 0] }}
+                transition={{ duration: 2.4, repeat: Infinity, delay, ease: "easeOut" }}
+              />
+            ))}
+            <OrderButton className="relative z-10 font-body text-xs tracking-[0.3em] uppercase px-10 py-4 border border-[#F8F3EA] text-[#F8F3EA] hover:bg-[#F8F3EA] hover:text-[#1C1814] transition-all duration-300" />
+          </div>
         </motion.div>
       </div>
     </section>
