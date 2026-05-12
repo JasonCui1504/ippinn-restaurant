@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
+import ScrollProgress from "@/components/ScrollProgress";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -39,7 +40,10 @@ export default function RootLayout({
       lang="en"
       className={`${cormorant.variable} ${dmSans.variable}`}
     >
-      <body className="bg-cream text-dark antialiased">{children}</body>
+      <body className="bg-cream text-dark antialiased">
+        <ScrollProgress />
+        {children}
+      </body>
     </html>
   );
 }

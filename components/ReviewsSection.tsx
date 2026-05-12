@@ -1,4 +1,6 @@
 import { getRatings, getReviewQuotes } from "@/lib/reviews";
+import CountingRating from "./CountingRating";
+import BrushStroke from "./BrushStroke";
 
 function Stars({ rating }: { rating: number }) {
   const full = Math.floor(rating);
@@ -57,7 +59,7 @@ export default async function ReviewsSection() {
           <h2 className="font-display text-[clamp(2.5rem,5vw,4rem)] font-light" style={{ color: "#F8F3EA" }}>
             Reviews
           </h2>
-          <div className="mt-5" style={{ height: "1px", width: "5rem", backgroundColor: "#3D3530" }} />
+          <BrushStroke color="#C9A96E" />
         </div>
 
         {/* Platform rating cards */}
@@ -86,7 +88,7 @@ export default async function ReviewsSection() {
 
               {/* Numeric rating */}
               <p className="font-display text-5xl font-light mb-3" style={{ color: "#F8F3EA" }}>
-                {r.rating.toFixed(1)}
+                <CountingRating value={r.rating} />
               </p>
 
               <Stars rating={r.rating} />

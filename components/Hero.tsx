@@ -54,11 +54,32 @@ export default function Hero() {
     <section className="relative min-h-screen flex flex-col lg:flex-row overflow-hidden">
       {/* Left — text */}
       <div
-        className="relative z-10 flex-1 flex flex-col justify-center px-8 md:px-16 lg:px-20 pt-32 pb-16 lg:py-0"
+        className="relative z-10 flex-1 flex flex-col justify-center px-8 md:px-16 lg:px-20 pt-32 pb-16 lg:py-0 overflow-hidden"
         style={{ background: "linear-gradient(135deg, #F8F3EA 0%, #EDE7DB 100%)" }}
       >
         <div className="absolute top-20 right-0 w-64 h-64 rounded-full opacity-[0.06]" style={{ border: "1px solid #1C1814" }} />
         <div className="absolute bottom-20 left-0 w-40 h-40 rounded-full opacity-[0.05]" style={{ border: "1px solid #1C1814" }} />
+
+        {/* Sakura petals */}
+        {[
+          { left: "7%",  size: 13, color: "#F5C2CA", dur: 8,   delay: 0,   xDrift: 22,  rotEnd: 200  },
+          { left: "25%", size: 10, color: "#F0B8C2", dur: 10,  delay: 2.5, xDrift: -16, rotEnd: -150 },
+          { left: "44%", size: 15, color: "#F8D0D6", dur: 9,   delay: 1.3, xDrift: 28,  rotEnd: 220  },
+          { left: "62%", size: 11, color: "#F5C2CA", dur: 11,  delay: 4.8, xDrift: -20, rotEnd: 175  },
+          { left: "78%", size: 12, color: "#F0B8C2", dur: 8.5, delay: 3.2, xDrift: 18,  rotEnd: -190 },
+        ].map((p, i) => (
+          <motion.div
+            key={i}
+            className="absolute pointer-events-none"
+            style={{ left: p.left, top: 0 }}
+            animate={{ y: [-p.size, 900], x: [0, p.xDrift], rotate: [0, p.rotEnd], opacity: [0, 0.72, 0.72, 0] }}
+            transition={{ duration: p.dur, repeat: Infinity, delay: p.delay, ease: "linear" }}
+          >
+            <svg width={p.size} height={Math.round(p.size * 1.4)} viewBox="0 0 20 28" aria-hidden="true">
+              <path d="M 10,0 C 18,4 20,14 10,28 C 0,14 2,4 10,0 Z" fill={p.color} />
+            </svg>
+          </motion.div>
+        ))}
 
         {/* Cartoon udon bowl with rising steam — desktop only */}
         <motion.div

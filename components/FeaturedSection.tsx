@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { featuredArticles } from "@/data/featured";
 import { fetchOG } from "@/lib/og";
+import BrushStroke from "./BrushStroke";
 
 export default async function FeaturedSection() {
   const articles = await Promise.all(
@@ -35,7 +36,7 @@ export default async function FeaturedSection() {
           <h2 className="font-display text-[clamp(2.5rem,5vw,4rem)] font-light" style={{ color: "#F8F3EA" }}>
             As Seen In
           </h2>
-          <div className="mt-5" style={{ height: "1px", width: "5rem", backgroundColor: "#3D3530" }} />
+          <BrushStroke color="#C9A96E" />
         </div>
 
         <div className={`grid gap-6 ${gridClass}`}>
