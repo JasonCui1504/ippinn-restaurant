@@ -10,12 +10,15 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Image
-              src="https://website-cdn.menusifu.com/public/images/Transparent+Logo.png"
+              src="/logo.png"
               alt="Ippinn logo"
               width={100}
               height={50}
               className="mb-3 opacity-80"
-              unoptimized
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src =
+                  "https://website-cdn.menusifu.com/public/images/Transparent+Logo.png";
+              }}
             />
             <p className="font-body text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#7D7268" }}>
               Ippinn Udon &amp; Tempura
@@ -70,7 +73,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Ippinn LLC. All rights reserved.
           </p>
           <a
-            href="https://order.mealkey.com/ippinn"
+            href="https://order.mealkeyway.com/merchant/41456f38576537682f514e7074536b36506e503552673d3d/main"
             target="_blank"
             rel="noopener noreferrer"
             className="font-body text-xs tracking-[0.25em] uppercase transition-colors duration-200"

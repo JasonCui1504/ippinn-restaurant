@@ -35,12 +35,16 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="#" className="flex items-center gap-2">
           <Image
-            src="https://website-cdn.menusifu.com/public/images/Transparent+Logo.png"
+            src="/logo.png"
             alt="Ippinn logo"
             width={80}
             height={40}
-            className="invert"
-            unoptimized
+            className="opacity-90"
+            onError={(e) => {
+              (e.currentTarget as HTMLImageElement).src =
+                "https://website-cdn.menusifu.com/public/images/Transparent+Logo.png";
+              (e.currentTarget as HTMLImageElement).className = "invert opacity-80";
+            }}
           />
           <span
             className="font-display text-sm tracking-[0.25em] uppercase hidden sm:block"
@@ -61,7 +65,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="https://order.mealkey.com/ippinn"
+            href="https://order.mealkeyway.com/merchant/41456f38576537682f514e7074536b36506e503552673d3d/main"
             target="_blank"
             rel="noopener noreferrer"
             className="font-body text-sm tracking-widest uppercase px-5 py-2 border border-accent text-accent hover:bg-accent hover:text-cream transition-all duration-300"
@@ -116,7 +120,7 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href="https://order.mealkey.com/ippinn"
+                href="https://order.mealkeyway.com/merchant/41456f38576537682f514e7074536b36506e503552673d3d/main"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-body text-sm tracking-widest uppercase px-5 py-2 border border-accent text-accent text-center hover:bg-accent hover:text-cream transition-all duration-300"

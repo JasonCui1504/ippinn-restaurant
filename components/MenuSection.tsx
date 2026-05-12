@@ -99,7 +99,7 @@ export default function MenuSection() {
             className="text-center"
           >
             <a
-              href="https://order.mealkey.com/ippinn"
+              href="https://order.mealkeyway.com/merchant/41456f38576537682f514e7074536b36506e503552673d3d/main"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block font-body text-xs tracking-[0.25em] uppercase px-8 py-4 bg-accent text-cream hover:bg-accent-light transition-colors duration-300"

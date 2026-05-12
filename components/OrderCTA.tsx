@@ -3,6 +3,27 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
+const platforms = [
+  {
+    label: "Order Direct",
+    sub: "Pickup & Delivery",
+    href: "https://order.mealkeyway.com/merchant/41456f38576537682f514e7074536b36506e503552673d3d/main",
+    primary: true,
+  },
+  {
+    label: "Uber Eats",
+    sub: "Delivery",
+    href: "https://www.ubereats.com/store/ippinn-udon/ijgfUR1LVi22D7WIHnfR3A",
+    primary: false,
+  },
+  {
+    label: "DoorDash",
+    sub: "Delivery",
+    href: "https://www.doordash.com/en/store/ippinn-udon-&-tempura-santa-rosa-539147/",
+    primary: false,
+  },
+];
+
 export default function OrderCTA() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-15%" });
@@ -13,7 +34,6 @@ export default function OrderCTA() {
       className="py-32 px-6 text-center overflow-hidden relative"
       style={{ backgroundColor: "#1C1814" }}
     >
-      {/* Background decoration */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.04]"
         style={{ border: "1px solid #F8F3EA" }}
@@ -33,6 +53,7 @@ export default function OrderCTA() {
         >
           Ready to eat?
         </motion.p>
+
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -43,39 +64,56 @@ export default function OrderCTA() {
           Pickup &amp; delivery,<br />
           <span className="italic">on your schedule.</span>
         </motion.h2>
+
         <motion.p
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ duration: 0.7, delay: 0.25 }}
-          className="font-body text-sm leading-relaxed mb-10"
+          className="font-body text-sm leading-relaxed mb-12"
           style={{ color: "#7D7268" }}
         >
-          Order online for pickup or delivery. Fresh, made-to-order, and
-          ready when you are.
+          Order direct for pickup, or get it delivered via your favourite platform.
         </motion.p>
-        <motion.a
+
+        <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.35 }}
-          href="https://order.mealkey.com/ippinn"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block font-body text-xs tracking-[0.3em] uppercase px-10 py-4 border transition-all duration-300"
-          style={{
-            borderColor: "#F8F3EA",
-            color: "#F8F3EA",
-          }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLElement).style.backgroundColor = "#F8F3EA";
-            (e.currentTarget as HTMLElement).style.color = "#1C1814";
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
-            (e.currentTarget as HTMLElement).style.color = "#F8F3EA";
-          }}
+          className="flex flex-col sm:flex-row justify-center gap-4"
         >
-          Order Now
-        </motion.a>
+          {platforms.map((p) => (
+            <a
+              key={p.label}
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex flex-col items-center gap-0.5 px-8 py-4 border transition-all duration-300"
+              style={{
+                borderColor: p.primary ? "#F8F3EA" : "#3D3530",
+                backgroundColor: "transparent",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.backgroundColor = p.primary ? "#F8F3EA" : "#3D3530";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
+              }}
+            >
+              <span
+                className="font-body text-xs tracking-[0.25em] uppercase transition-colors duration-300"
+                style={{ color: p.primary ? "#F8F3EA" : "#7D7268" }}
+              >
+                {p.label}
+              </span>
+              <span
+                className="font-body text-[10px] tracking-wider"
+                style={{ color: "#3D3530" }}
+              >
+                {p.sub}
+              </span>
+            </a>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
