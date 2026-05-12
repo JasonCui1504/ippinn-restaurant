@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 
 const links = [
@@ -32,15 +33,17 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link href="#" className="flex flex-col leading-none">
+        <Link href="#" className="flex items-center gap-2">
+          <Image
+            src="https://website-cdn.menusifu.com/public/images/Transparent+Logo.png"
+            alt="Ippinn logo"
+            width={80}
+            height={40}
+            className="invert"
+            unoptimized
+          />
           <span
-            className="font-display text-2xl font-semibold tracking-wide"
-            style={{ color: "#1C1814" }}
-          >
-            一品
-          </span>
-          <span
-            className="font-display text-xs tracking-[0.25em] uppercase"
+            className="font-display text-sm tracking-[0.25em] uppercase hidden sm:block"
             style={{ color: "#7D7268" }}
           >
             Ippinn

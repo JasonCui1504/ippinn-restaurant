@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function Footer() {
   return (
     <footer className="py-16 px-6" style={{ backgroundColor: "#1C1814" }}>
@@ -7,9 +9,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 pb-12" style={{ borderBottom: "1px solid #3D3530" }}>
           {/* Brand */}
           <div>
-            <p className="font-display text-4xl font-light mb-1" style={{ color: "#F8F3EA" }}>
-              一品
-            </p>
+            <Image
+              src="https://website-cdn.menusifu.com/public/images/Transparent+Logo.png"
+              alt="Ippinn logo"
+              width={100}
+              height={50}
+              className="mb-3 opacity-80"
+              unoptimized
+            />
             <p className="font-body text-xs tracking-[0.3em] uppercase mb-4" style={{ color: "#7D7268" }}>
               Ippinn Udon &amp; Tempura
             </p>

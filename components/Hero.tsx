@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const stagger = {
@@ -11,88 +12,149 @@ const fadeUp = {
   animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" as const } },
 };
 
-const fadeLine = {
-  initial: { scaleX: 0 },
-  animate: { scaleX: 1, transition: { duration: 1, ease: "easeOut" as const } },
-};
+const foodPhotos = [
+  "https://website-cdn.menusifu.com/wp-content/uploads/ippinnllc.com/2022/04/微信图片_20220421153141-scaled.jpg",
+  "https://website-cdn.menusifu.com/wp-content/uploads/ippinnllc.com/2022/04/微信图片_20220421153146-scaled.jpg",
+  "https://website-cdn.menusifu.com/wp-content/uploads/ippinnllc.com/2022/04/微信图片_20220421153148-scaled.jpg",
+];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 50% 40%, #EDE7DB 0%, #F8F3EA 60%, #F0E8DA 100%)",
-        }}
-      />
-
-      {/* Decorative circles */}
-      <div
-        className="absolute top-24 right-16 w-64 h-64 rounded-full opacity-[0.06]"
-        style={{ border: "1px solid #1C1814" }}
-      />
-      <div
-        className="absolute top-32 right-24 w-44 h-44 rounded-full opacity-[0.05]"
-        style={{ border: "1px solid #1C1814" }}
-      />
-      <div
-        className="absolute bottom-20 left-12 w-80 h-80 rounded-full opacity-[0.04]"
-        style={{ border: "1px solid #1C1814" }}
-      />
-
-      <motion.div
-        variants={stagger}
-        initial="initial"
-        animate="animate"
-        className="relative z-10 text-center px-6 max-w-4xl"
+    <section className="relative min-h-screen flex flex-col lg:flex-row overflow-hidden">
+      {/* Left — text side */}
+      <div className="relative z-10 flex-1 flex flex-col justify-center px-8 md:px-16 lg:px-20 pt-32 pb-16 lg:py-0"
+        style={{ background: "linear-gradient(135deg, #F8F3EA 0%, #EDE7DB 100%)" }}
       >
-        <motion.p
-          variants={fadeUp}
-          className="font-body text-xs tracking-[0.4em] uppercase text-warm-gray mb-8"
+        {/* Decorative circles */}
+        <div className="absolute top-20 right-0 w-64 h-64 rounded-full opacity-[0.06]" style={{ border: "1px solid #1C1814" }} />
+        <div className="absolute bottom-20 left-0 w-40 h-40 rounded-full opacity-[0.05]" style={{ border: "1px solid #1C1814" }} />
+
+        <motion.div
+          variants={stagger}
+          initial="initial"
+          animate="animate"
+          className="relative max-w-lg"
         >
-          Santa Rosa, California
-        </motion.p>
+          {/* Logo mark */}
+          <motion.div variants={fadeUp} className="mb-8">
+            <Image
+              src="https://website-cdn.menusifu.com/public/images/Transparent+Logo.png"
+              alt="Ippinn logo"
+              width={120}
+              height={60}
+              className="invert opacity-80"
+              unoptimized
+            />
+          </motion.div>
 
-        <motion.h1
-          variants={fadeUp}
-          className="font-display font-light text-[clamp(3.5rem,10vw,8rem)] leading-[0.9] tracking-tight text-dark mb-4"
-        >
-          Ippinn
-        </motion.h1>
-
-        <motion.div variants={fadeLine} className="origin-center mx-auto mb-6" style={{ height: "1px", width: "8rem", backgroundColor: "#D4C9B8" }} />
-
-        <motion.p
-          variants={fadeUp}
-          className="font-display text-[clamp(1.2rem,3vw,2rem)] italic font-light text-dark-muted tracking-wide mb-3"
-        >
-          Udon &amp; Tempura
-        </motion.p>
-
-        <motion.p
-          variants={fadeUp}
-          className="font-body text-sm text-warm-gray tracking-wide max-w-sm mx-auto mb-12"
-        >
-          Handcrafted noodles. From-scratch broths. Always fresh.
-        </motion.p>
-
-        <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="https://order.mealkey.com/ippinn"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block font-body text-xs tracking-[0.25em] uppercase px-8 py-4 bg-accent text-cream hover:bg-accent-light transition-colors duration-300"
+          <motion.p
+            variants={fadeUp}
+            className="font-body text-xs tracking-[0.4em] uppercase text-warm-gray mb-6"
           >
-            Order Online
-          </a>
-          <a
-            href="#menu"
-            className="inline-block font-body text-xs tracking-[0.25em] uppercase px-8 py-4 border border-dark text-dark hover:bg-dark hover:text-cream transition-all duration-300"
+            Santa Rosa, California
+          </motion.p>
+
+          <motion.h1
+            variants={fadeUp}
+            className="font-display font-light text-[clamp(3.5rem,8vw,7rem)] leading-[0.9] tracking-tight text-dark mb-4"
           >
-            View Menu
-          </a>
+            Ippinn
+          </motion.h1>
+
+          <motion.div
+            variants={{
+              initial: { scaleX: 0 },
+              animate: { scaleX: 1, transition: { duration: 1, ease: "easeOut" as const } },
+            }}
+            className="origin-left mb-6"
+            style={{ height: "1px", width: "6rem", backgroundColor: "#D4C9B8" }}
+          />
+
+          <motion.p
+            variants={fadeUp}
+            className="font-display text-[clamp(1.2rem,3vw,2rem)] italic font-light text-dark-muted tracking-wide mb-3"
+          >
+            Udon &amp; Tempura
+          </motion.p>
+
+          <motion.p
+            variants={fadeUp}
+            className="font-body text-sm text-warm-gray tracking-wide max-w-sm mb-10"
+          >
+            Handcrafted noodles. From-scratch broths. Always fresh.
+          </motion.p>
+
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
+            <a
+              href="https://order.mealkey.com/ippinn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block font-body text-xs tracking-[0.25em] uppercase px-8 py-4 bg-accent text-cream hover:bg-accent-light transition-colors duration-300"
+            >
+              Order Online
+            </a>
+            <a
+              href="#menu"
+              className="inline-block font-body text-xs tracking-[0.25em] uppercase px-8 py-4 border border-dark text-dark hover:bg-dark hover:text-cream transition-all duration-300"
+            >
+              View Menu
+            </a>
+          </motion.div>
+        </motion.div>
+      </div>
+
+      {/* Right — photo collage */}
+      <motion.div
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+        className="lg:w-[55%] relative min-h-[50vh] lg:min-h-screen"
+      >
+        {/* Main large photo */}
+        <div className="absolute inset-0">
+          <Image
+            src={foodPhotos[0]}
+            alt="Ippinn udon bowl"
+            fill
+            className="object-cover"
+            priority
+            sizes="(max-width: 1024px) 100vw, 55vw"
+            unoptimized
+          />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #F8F3EA 0%, transparent 15%)" }} />
+        </div>
+
+        {/* Floating photo cards */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="absolute bottom-10 right-6 w-36 h-36 shadow-xl overflow-hidden border-4 border-cream"
+        >
+          <Image
+            src={foodPhotos[1]}
+            alt="Ippinn tempura"
+            fill
+            className="object-cover"
+            sizes="144px"
+            unoptimized
+          />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="absolute top-24 right-10 w-28 h-28 shadow-xl overflow-hidden border-4 border-cream"
+        >
+          <Image
+            src={foodPhotos[2]}
+            alt="Ippinn ramen"
+            fill
+            className="object-cover"
+            sizes="112px"
+            unoptimized
+          />
         </motion.div>
       </motion.div>
 
@@ -101,15 +163,15 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.8 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-8 left-8 lg:left-20 flex items-center gap-3"
       >
-        <span className="font-body text-[10px] tracking-[0.3em] uppercase text-warm-gray">Scroll</span>
         <motion.div
-          animate={{ y: [0, 6, 0] }}
+          animate={{ x: [0, 6, 0] }}
           transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
-          className="w-px h-8"
-          style={{ background: "linear-gradient(to bottom, #7D7268, transparent)" }}
+          className="h-px w-8"
+          style={{ background: "linear-gradient(to right, #7D7268, transparent)" }}
         />
+        <span className="font-body text-[10px] tracking-[0.3em] uppercase text-warm-gray">Scroll</span>
       </motion.div>
     </section>
   );

@@ -93,17 +93,18 @@ export default function HoursLocation() {
               </svg>
             </a>
 
-            {/* Simple decorative map placeholder */}
-            <div
-              className="mt-8 h-48 border border-border flex items-center justify-center"
-              style={{ backgroundColor: "#EDE7DB" }}
-            >
-              <div className="text-center">
-                <p className="font-display text-3xl text-accent opacity-40 mb-1">一品</p>
-                <p className="font-body text-xs tracking-widest uppercase text-warm-gray">
-                  1880 Mendocino Ave
-                </p>
-              </div>
+            {/* Google Maps embed */}
+            <div className="mt-8 overflow-hidden border border-border" style={{ height: "220px" }}>
+              <iframe
+                src="https://maps.google.com/maps?q=1880+Mendocino+Ave,+Santa+Rosa,+CA+95401&output=embed&z=15"
+                width="100%"
+                height="220"
+                style={{ border: 0, display: "block" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Ippinn location map"
+              />
             </div>
           </motion.div>
         </div>
