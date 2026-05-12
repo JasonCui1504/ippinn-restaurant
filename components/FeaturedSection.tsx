@@ -29,7 +29,7 @@ export default async function FeaturedSection() {
     <section id="featured" className="py-28 px-6" style={{ backgroundColor: "#1C1814" }}>
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col items-center text-center mb-16">
-          <p className="font-body text-xs tracking-[0.4em] uppercase mb-4" style={{ color: "#9B2335" }}>
+          <p className="font-body text-xs tracking-[0.4em] uppercase mb-4" style={{ color: "#C9A96E" }}>
             Press
           </p>
           <h2 className="font-display text-[clamp(2.5rem,5vw,4rem)] font-light" style={{ color: "#F8F3EA" }}>
@@ -67,7 +67,7 @@ export default async function FeaturedSection() {
 
               {/* Text */}
               <div className="flex flex-col flex-1 p-6">
-                <p className="font-body text-[10px] tracking-[0.35em] uppercase mb-3" style={{ color: "#9B2335" }}>
+                <p className="font-body text-[10px] tracking-[0.35em] uppercase mb-3" style={{ color: "#C9A96E" }}>
                   {article.source}
                 </p>
                 <h3 className="font-display text-xl font-light leading-snug mb-3" style={{ color: "#F8F3EA" }}>

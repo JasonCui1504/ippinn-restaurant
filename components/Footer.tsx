@@ -28,7 +28,7 @@ export default function Footer() {
 
           {/* Visit */}
           <div>
-            <p className="font-body text-xs tracking-[0.35em] uppercase mb-5" style={{ color: "#9B2335" }}>
+            <p className="font-body text-xs tracking-[0.35em] uppercase mb-5" style={{ color: "#C9A96E" }}>
               Visit
             </p>
             <p className="font-body text-sm mb-1" style={{ color: "#EDE7DB" }}>
@@ -50,7 +50,7 @@ export default function Footer() {
 
           {/* Hours */}
           <div>
-            <p className="font-body text-xs tracking-[0.35em] uppercase mb-5" style={{ color: "#9B2335" }}>
+            <p className="font-body text-xs tracking-[0.35em] uppercase mb-5" style={{ color: "#C9A96E" }}>
               Hours
             </p>
             <div className="flex flex-col gap-2">

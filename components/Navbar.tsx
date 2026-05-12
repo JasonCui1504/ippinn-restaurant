@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import OrderButton from "./OrderButton";
 
 const links = [
   { label: "About", href: "#about" },
@@ -30,9 +29,12 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-cream/95 backdrop-blur-sm border-b border-border shadow-sm"
-          : "bg-transparent"
+          ? "border-b border-border shadow-sm"
+          : ""
       }`}
+      style={{
+        backgroundColor: scrolled ? "rgba(248,243,234,0.97)" : "rgba(248,243,234,0.88)",
+      }}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="#" className="flex items-center gap-2">
@@ -56,12 +58,18 @@ export default function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="font-body text-sm tracking-widest uppercase text-warm-gray hover:text-dark transition-colors duration-200"
+              className="font-body text-sm tracking-widest uppercase text-dark-muted hover:text-dark transition-colors duration-200"
             >
               {l.label}
             </a>
           ))}
-          <OrderButton className="font-body text-sm tracking-widest uppercase px-5 py-2 border border-accent text-accent hover:bg-accent hover:text-cream transition-all duration-300" />
+          {/* Scrolls to the order section at the bottom of the page */}
+          <a
+            href="#order"
+            className="font-body text-sm tracking-widest uppercase px-5 py-2 border border-accent text-accent hover:bg-accent hover:text-cream transition-all duration-300"
+          >
+            Order Online
+          </a>
         </nav>
 
         <button
@@ -70,21 +78,9 @@ export default function Navbar() {
           aria-label="Toggle menu"
         >
           <div className="w-5 flex flex-col gap-1.5">
-            <span
-              className={`block h-px bg-dark transition-all duration-300 ${
-                menuOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            />
-            <span
-              className={`block h-px bg-dark transition-all duration-300 ${
-                menuOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`block h-px bg-dark transition-all duration-300 ${
-                menuOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            />
+            <span className={`block h-px bg-dark transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block h-px bg-dark transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+            <span className={`block h-px bg-dark transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
           </div>
         </button>
       </div>
@@ -104,12 +100,18 @@ export default function Navbar() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setMenuOpen(false)}
-                  className="font-body text-sm tracking-widest uppercase text-warm-gray hover:text-dark transition-colors"
+                  className="font-body text-sm tracking-widest uppercase text-dark-muted hover:text-dark transition-colors"
                 >
                   {l.label}
                 </a>
               ))}
-              <OrderButton className="font-body text-sm tracking-widest uppercase px-5 py-2 border border-accent text-accent text-center hover:bg-accent hover:text-cream transition-all duration-300" />
+              <a
+                href="#order"
+                onClick={() => setMenuOpen(false)}
+                className="font-body text-sm tracking-widest uppercase px-5 py-2 border border-accent text-accent text-center hover:bg-accent hover:text-cream transition-all duration-300"
+              >
+                Order Online
+              </a>
             </div>
           </motion.nav>
         )}

@@ -7,7 +7,7 @@ const vp = { once: true, amount: 0 as const };
 
 export default function OrderCTA() {
   return (
-    <section className="py-32 px-6 text-center overflow-hidden relative" style={{ backgroundColor: "#1C1814" }}>
+    <section id="order" className="py-32 px-6 text-center overflow-hidden relative" style={{ backgroundColor: "#1C1814" }}>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-[0.04]" style={{ border: "1px solid #F8F3EA" }} />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full opacity-[0.04]" style={{ border: "1px solid #F8F3EA" }} />
 
@@ -16,7 +16,7 @@ export default function OrderCTA() {
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }} viewport={vp}
           className="font-body text-xs tracking-[0.4em] uppercase mb-6"
-          style={{ color: "#9B2335" }}
+          style={{ color: "#C9A96E" }}
         >
           Ready to eat?
         </motion.p>

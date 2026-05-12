@@ -61,20 +61,24 @@ export default function Hero() {
         <div className="absolute bottom-20 left-0 w-40 h-40 rounded-full opacity-[0.05]" style={{ border: "1px solid #1C1814" }} />
 
         <motion.div variants={stagger} initial="initial" animate="animate" className="relative max-w-lg">
-          <motion.div variants={fadeUp} className="mb-8">
-            <Image src="/logo.png" alt="Ippinn logo" width={140} height={70} style={{ mixBlendMode: "multiply" }} />
-          </motion.div>
-
           <motion.p variants={fadeUp} className="font-body text-xs tracking-[0.4em] uppercase text-warm-gray mb-6">
             Santa Rosa, California
           </motion.p>
 
-          <motion.h1
-            variants={fadeUp}
-            className="font-display font-light text-[clamp(3.5rem,8vw,7rem)] leading-[0.9] tracking-tight text-dark mb-4"
-          >
-            Ippinn
-          </motion.h1>
+          {/* Heading + logo inline */}
+          <motion.div variants={fadeUp} className="flex items-center gap-5 mb-4">
+            <h1 className="font-display font-light text-[clamp(3.5rem,8vw,7rem)] leading-[0.9] tracking-tight text-dark">
+              Ippinn
+            </h1>
+            <Image
+              src="/logo.png"
+              alt="Ippinn logo"
+              width={90}
+              height={90}
+              className="shrink-0"
+              style={{ mixBlendMode: "multiply" }}
+            />
+          </motion.div>
 
           <motion.div
             variants={{ initial: { scaleX: 0 }, animate: { scaleX: 1, transition: { duration: 1, ease: "easeOut" as const } } }}
