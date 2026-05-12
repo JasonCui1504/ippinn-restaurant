@@ -65,32 +65,28 @@ export default function Hero() {
             Santa Rosa, California
           </motion.p>
 
-          {/* Heading + logo inline */}
-          <motion.div variants={fadeUp} className="flex items-center gap-5 mb-4">
-            <h1 className="font-display font-light text-[clamp(3.5rem,8vw,7rem)] leading-[0.9] tracking-tight text-dark">
-              Ippinn
-            </h1>
+          {/* Heading + logo: logo is centered beside both title lines */}
+          <motion.div variants={fadeUp} className="flex items-center gap-6 mb-10">
+            <div>
+              <h1 className="font-display font-light text-[clamp(3.5rem,8vw,7rem)] leading-[0.9] tracking-tight text-dark">
+                Ippinn
+              </h1>
+              <div className="my-4" style={{ height: "1px", width: "6rem", backgroundColor: "#D4C9B8" }} />
+              <p className="font-display text-[clamp(1.2rem,3vw,2rem)] italic font-light text-dark-muted tracking-wide">
+                Udon &amp; Tempura
+              </p>
+            </div>
             <Image
               src="/logo.png"
               alt="Ippinn logo"
-              width={90}
-              height={90}
+              width={160}
+              height={160}
               className="shrink-0"
               style={{ mixBlendMode: "multiply" }}
             />
           </motion.div>
 
-          <motion.div
-            variants={{ initial: { scaleX: 0 }, animate: { scaleX: 1, transition: { duration: 1, ease: "easeOut" as const } } }}
-            className="origin-left mb-6"
-            style={{ height: "1px", width: "6rem", backgroundColor: "#D4C9B8" }}
-          />
-
-          <motion.p variants={fadeUp} className="font-display text-[clamp(1.2rem,3vw,2rem)] italic font-light text-dark-muted tracking-wide mb-3">
-            Udon &amp; Tempura
-          </motion.p>
-
-          <motion.p variants={fadeUp} className="font-body text-sm text-warm-gray tracking-wide max-w-sm mb-10">
+          <motion.p variants={fadeUp} className="font-body text-sm text-warm-gray tracking-wide max-w-sm mb-10 -mt-6">
             Handcrafted noodles. From-scratch broths. Always fresh.
           </motion.p>
 
