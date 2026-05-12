@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 const hours = [
   { days: "Sunday – Thursday", time: "11:00 AM – 8:30 PM" },
@@ -9,32 +8,24 @@ const hours = [
 ];
 
 export default function HoursLocation() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-10%" });
-
   return (
-    <section id="hours" ref={ref} className="py-28 px-6 bg-cream">
+    <section id="hours" className="py-28 px-6 bg-cream">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Hours */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: "easeOut" as const }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0 }}
           >
-            <p className="font-body text-xs tracking-[0.4em] uppercase text-warm-gray mb-5">
-              Hours
-            </p>
+            <p className="font-body text-xs tracking-[0.4em] uppercase text-warm-gray mb-5">Hours</p>
             <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-light text-dark mb-10">
               When to find us
             </h2>
 
             <div className="flex flex-col gap-0 border-t border-border">
               {hours.map((h) => (
-                <div
-                  key={h.days}
-                  className="flex justify-between items-baseline py-5 border-b border-border"
-                >
+                <div key={h.days} className="flex justify-between items-baseline py-5 border-b border-border">
                   <span className="font-body text-sm text-dark-muted">{h.days}</span>
                   <span className="font-display text-lg text-dark font-medium">{h.time}</span>
                 </div>
@@ -42,42 +33,31 @@ export default function HoursLocation() {
             </div>
 
             <div className="mt-10 pt-8 border-t border-border">
-              <p className="font-body text-xs tracking-[0.3em] uppercase text-warm-gray mb-3">
-                Contact
-              </p>
-              <a
-                href="tel:+17075219911"
-                className="font-display text-2xl text-dark hover:text-accent transition-colors duration-200"
-              >
+              <p className="font-body text-xs tracking-[0.3em] uppercase text-warm-gray mb-3">Contact</p>
+              <a href="tel:+17075219911" className="font-display text-2xl text-dark hover:text-accent transition-colors duration-200">
                 (707) 521-9911
               </a>
             </div>
           </motion.div>
 
-          {/* Location */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" as const }}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0 }}
           >
-            <p className="font-body text-xs tracking-[0.4em] uppercase text-warm-gray mb-5">
-              Location
-            </p>
+            <p className="font-body text-xs tracking-[0.4em] uppercase text-warm-gray mb-5">Location</p>
             <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-light text-dark mb-10">
               Come visit us
             </h2>
 
             <div className="mb-8">
-              <p className="font-display text-xl text-dark mb-1">
-                1880 Mendocino Ave
-              </p>
-              <p className="font-display text-xl text-dark-muted">
-                Santa Rosa, CA 95401
-              </p>
+              <p className="font-display text-xl text-dark mb-1">1880 Mendocino Ave</p>
+              <p className="font-display text-xl text-dark-muted">Santa Rosa, CA 95401</p>
             </div>
 
             <p className="font-body text-sm text-warm-gray leading-relaxed mb-8">
-              We're right across the street from Santa Rosa Junior College —
+              Right across the street from Santa Rosa Junior College —
               easy to find, easy to park, easy to love.
             </p>
 
@@ -93,7 +73,6 @@ export default function HoursLocation() {
               </svg>
             </a>
 
-            {/* Google Maps embed */}
             <div className="mt-8 overflow-hidden border border-border" style={{ height: "220px" }}>
               <iframe
                 src="https://maps.google.com/maps?q=1880+Mendocino+Ave,+Santa+Rosa,+CA+95401&output=embed&z=15"

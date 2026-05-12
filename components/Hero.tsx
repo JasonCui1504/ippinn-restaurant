@@ -12,8 +12,9 @@ const fadeUp = {
   animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" as const } },
 };
 
-// Using a later, higher-quality food photo
-const HERO_PHOTO =
+// Drop any photo named hero.jpg (or .png / .webp) into public/ to customise this
+const HERO_PHOTO = "/hero.jpg";
+const HERO_FALLBACK =
   "https://website-cdn.menusifu.com/wp-content/uploads/ippinnllc.com/2023/04/微信图片_20230413172828.jpg";
 
 export default function Hero() {
@@ -112,6 +113,7 @@ export default function Hero() {
           alt="Ippinn udon bowl"
           fill
           className="object-cover"
+          onError={(e) => { (e.currentTarget as HTMLImageElement).src = HERO_FALLBACK; }}
           priority
           sizes="(max-width: 1024px) 100vw, 55vw"
           unoptimized
